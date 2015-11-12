@@ -10,26 +10,26 @@ router.post('/create', function(req, res) {
   });
 });
 
-router.get('/:user_id/destroy', function(req, res) {
+router.get('/:member_id/destroy', function(req, res) {
   models.User.destroy({
     where: {
-      id: req.params.user_id
+      id: req.params.member_id
     }
   }).then(function() {
     res.redirect('/');
   });
 });
 
-router.post('/:user_id/tasks/create', function (req, res) {
+router.post('/:member_id/tasks/create', function (req, res) {
   models.Task.create({
     title: req.body.title,
-    UserId: req.params.user_id
+    UserId: req.params.member_id
   }).then(function() {
     res.redirect('/');
   });
 });
 
-router.get('/:user_id/tasks/:task_id/destroy', function (req, res) {
+router.get('/:member_id/tasks/:task_id/destroy', function (req, res) {
   models.Task.destroy({
     where: {
       id: req.params.task_id
