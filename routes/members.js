@@ -2,16 +2,27 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
+// JSON
+router.get('/', function(req, res) {
+  models.Member.findAll({
+    include: [ models.Task ]
+  }).then(function(members) {
+    res.json({
+      members: members
+    });
+  });
+});
+
 router.post('/create', function(req, res) {
-  models.User.create({
-    username: req.body.username
+  models.Member.create({
+    displayName: req.body.displayName
   }).then(function() {
     res.redirect('/');
   });
 });
 
 router.get('/:member_id/destroy', function(req, res) {
-  models.User.destroy({
+  models.Member.destroy({
     where: {
       id: req.params.member_id
     }
@@ -23,7 +34,7 @@ router.get('/:member_id/destroy', function(req, res) {
 router.post('/:member_id/tasks/create', function (req, res) {
   models.Task.create({
     title: req.body.title,
-    UserId: req.params.member_id
+    MemberId: req.params.member_id
   }).then(function() {
     res.redirect('/');
   });
