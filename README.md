@@ -26,7 +26,7 @@ cd express-example
 npm install express-generator
 node_modules/.bin/express -f
 npm install
-npm install --save sequelize@2.0.0-rc1 sequelize-cli sqlite3
+npm install --save sequelize-cli "pg"
 node_modules/.bin/sequelize init
 node_modules/.bin/sequelize model:create --name User --attributes username:string
 node_modules/.bin/sequelize model:create --name Task --attributes title:string

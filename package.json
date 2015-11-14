@@ -15,10 +15,10 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
+    "pg": "^4.4.3",
     "sequelize": "^3.3.2",
-    "sequelize-cli": "^1.7.1",
+    "sequelize-cli": "^1.9.2",
     "serve-favicon": "~2.3.0",
-    "sqlite3": "^3.0.8"
   },
   "devDependencies": {
     "bluebird": "^2.9.33",
